@@ -12,5 +12,5 @@ brew 'python@2'
 brew 'python'
 
 cask 'firefox'
-cask 'keepassx'
+cask 'keepassxc'
 cask 'telegram'
