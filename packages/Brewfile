@@ -12,6 +12,7 @@ brew 'python@2'
 brew 'python'
 brew 'neovim'
 
+cask 'alacritty'
 cask 'firefox'
 cask 'keepassxc'
 cask 'telegram'
