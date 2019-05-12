@@ -10,6 +10,7 @@ brew 'brew-cask-completion'
 brew 'coreutils'
 brew 'python@2'
 brew 'python'
+brew 'neovim'
 
 cask 'firefox'
 cask 'keepassxc'

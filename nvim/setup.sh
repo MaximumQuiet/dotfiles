@@ -4,11 +4,14 @@ cd "$DIR"
 . ../bin/functions.sh
 
 SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)"
 
-info "Setting up Vim..."
+mkdir -p "$(realpath ~/.config/nvim)"
 
-find . -name ".vim*" | while read fn; do
+DESTINATION="$(realpath ~/.config/nvim)"
+
+info "Setting up NeoVim..."
+
+find . -name "init*" | while read fn; do
     fn=$(basename $fn)
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
