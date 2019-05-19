@@ -11,6 +11,7 @@ brew 'coreutils'
 brew 'python@2'
 brew 'python'
 brew 'neovim'
+brew 'tmux'
 
 cask 'alacritty'
 cask 'firefox'
