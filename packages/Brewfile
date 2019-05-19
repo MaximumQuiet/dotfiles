@@ -1,17 +1,16 @@
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
-tap 'homebrew/completions'
 
 brew 'rust'
 brew 'htop'
 brew 'portaudio'
-brew 'brew-cask-completion'
 brew 'coreutils'
 brew 'python@2'
 brew 'python'
 brew 'neovim'
 brew 'tmux'
+brew 'antigen'
 
 cask 'alacritty'
 cask 'firefox'

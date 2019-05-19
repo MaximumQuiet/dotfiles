@@ -248,10 +248,10 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 # shell:
-#   program: /bin/bash
-#   args:
-#     - --login
-
+# program: /bin/zsh
+# args:
+# - --login
+#
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
