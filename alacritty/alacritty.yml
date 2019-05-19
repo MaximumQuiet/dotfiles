@@ -124,59 +124,46 @@ font:
 # Should display the render timer
 render_timer: false
 
-# Colors (Tomorrow Night Bright)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
-
-    # (Optional) Bright and Dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #
-    # dim_foreground: '0x9a9a9a'
-    # bright_foreground: '0xffffff'
+    background: '0x1a1a1a'
+    foreground: '0xcccccc'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    text: '0x1a1a1a'
+    cursor: '0xcccccc'
 
   # Normal colors
   normal:
-    black:   '0x151515'
-    red:     '0xac4142'
-    green:   '0x90a959'
-    yellow:  '0xf4bf75'
-    blue:    '0x6a9fb5'
-    magenta: '0xaa759f'
-    cyan:    '0x75b5aa'
-    white:   '0xf5f5f5'
+    black:   '0x1a1a1a'
+    red:     '0xd88568'
+    green:   '0x83a471'
+    yellow:  '0xb99353'
+    blue:    '0x8eccdd'
+    magenta: '0xb98eb2'
+    cyan:    '0x7c9cae'
+    white:   '0xcccccc'
 
   # Bright colors
   bright:
-    black:   '0x505050'
-    red:     '0xac4142'
-    green:   '0x90a959'
-    yellow:  '0xf4bf75'
-    blue:    '0x6a9fb5'
-    magenta: '0xaa759f'
-    cyan:    '0x75b5aa'
-    white:   '0xf5f5f5'
+    black:   '0x767676'
+    red:     '0xd88568'
+    green:   '0x83a471'
+    yellow:  '0xb99353'
+    blue:    '0x8eccdd'
+    magenta: '0xb98eb2'
+    cyan:    '0x7c9cae'
+    white:   '0xf8f8f8'
 
-  # Dim colors (Optional)
-  dim:
-    black:   '0x333333'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
+  indexed_colors:
+    - { index: 16, color: '0xd86868' }
+    - { index: 17, color: '0x8b6c37' }
+    - { index: 18, color: '0x222222' }
+    - { index: 19, color: '0x1d414d' }
+    - { index: 20, color: '0xb8b8b8' }
+    - { index: 21, color: '0xe8e8e8' }
 
 # Visual Bell
 #
