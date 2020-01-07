@@ -53,6 +53,7 @@ info() {
 
 success() {
     coloredEcho "$1" green "========>"
+    echo $'\n'
 }
 
 error() {
@@ -69,4 +70,5 @@ substep_success() {
 
 substep_error() {
     coloredEcho "$1" red "===="
+    echo $'\n'
 }
