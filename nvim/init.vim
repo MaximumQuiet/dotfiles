@@ -3,16 +3,21 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load plugins here (pathogen or vundle)
+call functions#PlugLoad()
+call plug#begin('~/.config/nvim/plugged')
+""" Theme configuration
+Plug 'ayu-theme/ayu-vim' 
+call plug#end()
+
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " Turn on syntax highlighting
 syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
-
-" TODO: Pick a leader key
-" let mapleader = ","
 
 " Security
 set modelines=0
@@ -88,7 +93,7 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+" set t_Co=256
+" set background=dark
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
