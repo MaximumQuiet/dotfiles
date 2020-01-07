@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+!/usr/bin/env sh
 
 DIR=$(dirname "$0")
 cd "$DIR"
@@ -10,8 +10,11 @@ DESTINATION="$(realpath ~/)"
 
 info "Setting up zsh shell..."
 
-info "Downloading oh-my-zsh"
+substep_info "Downloading oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+substep_info "Downloading antigen"
+sh -c "$(curl -L git.io/antigen --create-dirs -o $DESTINATION/.antigen/antigen.zsh)"
 
 find . -name ".zsh*" | while read fn; do
     fn=$(basename $fn)
@@ -25,10 +28,10 @@ set_zsh_shell() {
         success "zsh shell is already set up."
     else
         substep_info "Adding fish executable to /etc/shells"
-        if grep --fixed-strings --line-regexp --quiet "/usr/local/bin/zsh" /etc/shells; then
+        if grep --fixed-strings --line-regexp --quiet "/usr/bin/zsh" /etc/shells; then
             substep_success "zsh executable already exists in /etc/shells."
         else
-            if sudo bash -c "echo /usr/local/bin/zsh >> /etc/shells"; then
+            if sudo bash -c "echo /usr/bin/zsh >> /etc/shells"; then
                 substep_success "zsh executable added to /etc/shells."
             else
                 substep_error "Failed adding zsh executable to /etc/shells."
@@ -36,7 +39,7 @@ set_zsh_shell() {
             fi
         fi
         substep_info "Changing shell to zsh"
-        if sudo chsh -s /usr/local/bin/zsh; then
+        if sudo chsh -s /usr/bin/zsh; then
             substep_success "Changed shell to zsh"
         else
             substep_error "Failed changing shell to zsh"
@@ -50,3 +53,4 @@ if set_zsh_shell; then
 else
     error "Failed setting up zsh shell."
 fi
+

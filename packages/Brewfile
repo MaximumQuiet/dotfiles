@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/versions'
 tap 'homebrew/core'
 
+brew 'coreutils'
 brew 'grep'
 brew 'htop'
 brew 'neovim'
