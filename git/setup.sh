@@ -8,7 +8,7 @@ cd "$DIR"
 SOURCE="$(realpath .)"
 DESTINATION="$(realpath ~)"
 
-info "Configuraing git..."
+info "Setting up git"
 
 find . -name ".git*" | while read fn; do
     fn=$(basename $fn)
