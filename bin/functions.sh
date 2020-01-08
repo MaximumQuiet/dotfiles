@@ -48,6 +48,7 @@ coloredEcho() {
 }
 
 info() {
+    echo $''
     coloredEcho "$1" blue "===="
 }
 
