@@ -5,13 +5,15 @@ cd "$DIR"
 
 . bin/functions.sh
 
-info "Prompting for sudo password..."
+info "Bootstraping your ~/.dotfiles is started"
+
+substep_info "Prompting for sudo password"
 if sudo -v; then
     # Keep-alive: update existing `sudo` time stamp until `setup.sh` has finished
     while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-    success "Sudo credentials updated."
+    substep_success "Sudo credentials updated."
 else
-    error "Failed to obtain sudo credentials."
+    substep_error "Failed to obtain sudo credentials."
 fi
 
 # Package control must be executed first in order for the rest to work

@@ -9,21 +9,21 @@ COMMENT=\#*
 
 sudo -v
 
-info "Installing Brewfile packages:"
-brew bundle
+info "Installing Brew packages"
 
-find * -name "*.list" | while read fn; do
-    cmd="${fn%.*}"
-    set -- $cmd
-    info "Installing $1 package..."
-    while read package; do
-        if [[ $package == $COMMENT ]];
-        then continue
-        fi
-        substep_info "Installing $package:"
-        $cmd $package
-    done < "$fn"
-    success "Finished installing $1 package."
-done
+substep_info "Updating brew"
+if brew update && brew upgrade; then
+  substep_success "Brew is up to date"
+else
+  substep_error "Unable to update brew, error occured"
+fi
 
-success "Finished installing Brewfile packages."
+substep_info "Installing packages"
+
+if brew bundle install; then
+  substep_success "Packages is installed"
+else
+  substep_error "Unable to install brew dependencies, error occured"
+fi
+
+success "Finished installing Brew packages."

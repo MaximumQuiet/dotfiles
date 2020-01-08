@@ -52,23 +52,24 @@ info() {
 }
 
 success() {
+    echo $''
     coloredEcho "$1" green "====>"
-    echo $'\n'
 }
 
 error() {
     coloredEcho "$1" red "====>"
-    echo $'\n'
+    echo $''
 }
 
 substep_info() {
-    coloredEcho "$1" magenta "      *"
+    echo $''
+    coloredEcho "$1" magenta "*"
 }
 
 substep_success() {
-    coloredEcho "$1" green "        ✔"
+    coloredEcho "$1" green "✔"
 }
 
 substep_error() {
-    coloredEcho "$1" red "        ✘"
+    coloredEcho "$1" red "✘"
 }
