@@ -1,4 +1,4 @@
-!/usr/bin/env sh
+#!/usr/bin/env sh
 
 DIR=$(dirname "$0")
 cd "$DIR"
@@ -8,49 +8,27 @@ cd "$DIR"
 SOURCE="$(realpath .)"
 DESTINATION="$(realpath ~/)"
 
-info "Setting up zsh shell..."
+info "Setting up zsh"
 
 substep_info "Downloading oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; then
+  substep_success "oh-my-zsh successfully downloaded"
+else
+  substep_error "Unable to download oh-my-zsh, error occured"
+fi
 
 substep_info "Downloading antigen"
-sh -c "$(curl -L git.io/antigen --create-dirs -o $DESTINATION/.antigen/antigen.zsh)"
+if sh -c "$(curl -L git.io/antigen --create-dirs -o $DESTINATION/.antigen/antigen.zsh)"; then
+  substep_success "antigen successfully downloaded"
+else
+  substep_error "Unable to download antigen, error occured"
+fi
 
+substep_info "Linking zsh configuration files"
 find . -name ".zsh*" | while read fn; do
     fn=$(basename $fn)
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
 
+substep_info "Clearing broken symlinks"
 clear_broken_symlinks "$DESTINATION"
-
-set_zsh_shell() {
-    if grep --quiet zsh <<< "$SHELL"; then
-        success "zsh shell is already set up."
-    else
-        substep_info "Adding fish executable to /etc/shells"
-        if grep --fixed-strings --line-regexp --quiet "/usr/bin/zsh" /etc/shells; then
-            substep_success "zsh executable already exists in /etc/shells."
-        else
-            if sudo bash -c "echo /usr/bin/zsh >> /etc/shells"; then
-                substep_success "zsh executable added to /etc/shells."
-            else
-                substep_error "Failed adding zsh executable to /etc/shells."
-                return 1
-            fi
-        fi
-        substep_info "Changing shell to zsh"
-        if sudo chsh -s /usr/bin/zsh; then
-            substep_success "Changed shell to zsh"
-        else
-            substep_error "Failed changing shell to zsh"
-            return 2
-        fi 
-    fi
-}
-
-if set_zsh_shell; then
-    success "Successfully set up zsh shell."
-else
-    error "Failed setting up zsh shell."
-fi
-
