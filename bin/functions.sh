@@ -48,27 +48,27 @@ coloredEcho() {
 }
 
 info() {
-    coloredEcho "$1" blue "========>"
+    coloredEcho "$1" blue "===="
 }
 
 success() {
-    coloredEcho "$1" green "========>"
+    coloredEcho "$1" green "====>"
     echo $'\n'
 }
 
 error() {
-    coloredEcho "$1" red "========>"
+    coloredEcho "$1" red "====>"
+    echo $'\n'
 }
 
 substep_info() {
-    coloredEcho "$1" magenta "===="
+    coloredEcho "$1" magenta "      *"
 }
 
 substep_success() {
-    coloredEcho "$1" cyan "===="
+    coloredEcho "$1" green "        ✔"
 }
 
 substep_error() {
-    coloredEcho "$1" red "===="
-    echo $'\n'
+    coloredEcho "$1" red "        ✘"
 }
