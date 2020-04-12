@@ -1,5 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
+alias pebble=$HOME/SDK/pebble-sdk-4.5-rc1-mac/bin/pebble
 
 VISUAL=nvim;
 export VISUAL 
@@ -7,7 +8,6 @@ EDITOR=nvim;
 export EDITOR;
 
 source $ZSH/oh-my-zsh.sh
-export GEOMETRY_STATUS_COLOR="magenta"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -31,9 +31,7 @@ antigen bundle git
 #antigen bundle colorize
 #antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-
-antigen theme geometry-zsh/geometry
-
+antigen theme reobin/typewritten
 antigen apply
 
 # User configuration
