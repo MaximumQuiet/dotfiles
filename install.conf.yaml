@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- shell:
+    - [git submodule update --init --recursive, Updating submodules]
+
+- brewfile:
+    file: brew/Brewfile
+    no-upgrade: true
+
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.tmux.conf: tmux/tmux.conf
+
+# Git configuring
+- link:
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+
+# Neovim configuring
+- link:
+    ~/.config/nvim:
+        path: nvim
+        create: true
+
+- shell:
+    - [nvim -c 'PlugInstall' -c q -c q, Installing NeoVim plugins]
+
+- shell:
+    - [brew cleanup, Cleaning up Brew]
