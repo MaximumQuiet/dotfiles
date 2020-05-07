@@ -12,8 +12,14 @@
     no-upgrade: true
 
 - link:
-    ~/.zshrc: zsh/zshrc
     ~/.tmux.conf: tmux/tmux.conf
+
+# Shell configuring
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.aliases: zsh/aliases
+    ~/.exports: zsh/exports
+    ~/.functions: zsh/functions
 
 # Git configuring
 - link:
@@ -28,6 +34,12 @@
 
 - shell:
     - [nvim -c 'PlugInstall' -c q -c q, Installing NeoVim plugins]
+
+- shell:
+    - [curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh, Installing Oh-My-Zsh]
+
+- shell:
+    - [curl -L git.io/antigen --create-dirs -o $DESTINATION/.antigen/antigen.zsh, Installing Antigen]
 
 - shell:
     - [brew cleanup, Cleaning up Brew]

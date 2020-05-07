@@ -1,6 +1,10 @@
 [user]
 	name = MaximumQuiet
 	email = maximumquiet@gmail.com
+
 [core]
-	excludesfile = /Users/spoket/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/nvim
+
+[http]
+sslverify = false
