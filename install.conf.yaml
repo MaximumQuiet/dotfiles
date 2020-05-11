@@ -24,6 +24,8 @@
 # Git configuring
 - link:
     ~/.gitconfig: git/gitconfig
+    ~/.gitconfig_personal: git/gitconfig_personal
+    ~/.gitconfig_work: git/gitconfig_work
     ~/.gitignore_global: git/gitignore_global
 
 # Neovim configuring

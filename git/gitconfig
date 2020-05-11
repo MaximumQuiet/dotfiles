@@ -1,8 +1,3 @@
-[user]
-	name = MaximumQuiet
-	email = maximumquiet@gmail.com
-	signingkey = maximumquiet@gmail.com
-
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/nvim
@@ -12,3 +7,9 @@
 
 [gpg]
 	program = /usr/local/bin/gpg
+
+[includeIf "gitdir:~/work/bystrobank/"]
+  path = .gitconfig_personal
+
+[includeIf "gitdir:~/work/personal/"]
+  path = .gitconfig_work
