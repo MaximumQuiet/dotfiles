@@ -25,3 +25,6 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
 # Homebrew sbin
 export PATH="/usr/local/sbin:$PATH"
+
+# Work with GPG
+export GPG_TTY=$(tty)
