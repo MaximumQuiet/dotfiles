@@ -1,10 +1,14 @@
 [user]
 	name = MaximumQuiet
 	email = maximumquiet@gmail.com
+	signingkey = maximumquiet@gmail.com
 
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/nvim
 
-[http]
-sslverify = false
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = /usr/local/bin/gpg
