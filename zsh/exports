@@ -20,9 +20,6 @@ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vi'
 fi
 
-# Python 3 installation
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-
 # Homebrew sbin
 export PATH="/usr/local/sbin:$PATH"
 
