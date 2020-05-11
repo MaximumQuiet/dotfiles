@@ -9,7 +9,7 @@
 	program = /usr/local/bin/gpg
 
 [includeIf "gitdir:~/work/bystrobank/"]
-  path = .gitconfig_personal
+  path = .gitconfig_work
 
 [includeIf "gitdir:~/work/personal/"]
-  path = .gitconfig_work
+  path = .gitconfig_personal
