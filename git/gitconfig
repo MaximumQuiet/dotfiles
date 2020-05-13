@@ -5,9 +5,6 @@
 [commit]
 	gpgsign = true
 
-[gpg]
-	program = /usr/local/bin/gpg
-
 [includeIf "gitdir:~/work/bystrobank/"]
   path = .gitconfig_work
 

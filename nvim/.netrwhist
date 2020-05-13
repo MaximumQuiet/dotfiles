@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/spoket/.dotfiles/git'
+let g:netrw_dirhist_6='/Users/spoket/work/bystrobank/rtsigateway/.git'
+let g:netrw_dirhist_5='/Users/spoket/work/bystrobank/rtsigateway'
+let g:netrw_dirhist_4='/Users/spoket/work/bystrobank'
+let g:netrw_dirhist_3='/Users/spoket/work'
+let g:netrw_dirhist_2='/Users/spoket'
+let g:netrw_dirhist_1='/Users/spoket/.dotfiles'
+let g:netrw_dirhist_0='/Users/spoket/.dotfiles/git'
+let g:netrw_dirhist_9='/Users/spoket/.dotfiles'
+let g:netrw_dirhist_8='/Users/spoket/work/rtsigateway/docs/large-captcha-flow'
