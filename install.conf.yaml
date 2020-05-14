@@ -11,8 +11,12 @@
     file: brew/Brewfile
     no-upgrade: true
 
+# tmux configuring
 - link:
     ~/.tmux.conf: tmux/tmux.conf
+
+- shell:
+    - [git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm, Installing plugin manager for tmux]
 
 # Shell configuring
 - link:
