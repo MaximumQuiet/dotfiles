@@ -1,4 +1,4 @@
-" load vim-plug if it does not exist in the dotfiles
+" --- load vim-plug if it does not exist in the dotfiles ---
 let s:plugpath = expand('<sfile>:p:h') . '/plug.vim' " this is relative to this file, which is in autoload
 function! functions#PlugLoad()
     if !filereadable(s:plugpath)

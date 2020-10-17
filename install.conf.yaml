@@ -2,50 +2,50 @@
     link:
       relink: true
 
-- clean: ['~']
+# --- ZSH setup ---
 
+# --- XDG paths isn't present, so using here the hardcoded value ---
+- link:
+    $XDG_CONFIG_HOME/zsh:
+      path: zsh
+      create: true
+
+# --- Create cache dirs ---
 - shell:
-    - [git submodule update --init --recursive, Updating submodules]
+    - [mkdir $XDG_CACHE_HOME/zsh]
+    - [mkdir $XDG_CACHE_HOME/antigen]
 
+# --- Clean existing symlinks ---
+- clean: ['$HOME']
+- clean: ['$XDG_CONFIG_HOME']
+
+# --- Brew packages ---
 - brewfile:
     file: brew/Brewfile
     no-upgrade: true
 
-# tmux configuring
+# --- Tmux setup ---
 - link:
-    ~/.tmux.conf: tmux/tmux.conf
+    $XDG_CONFIG_HOME/tmux:
+        path: tmux
+        create: true
 
-- shell:
-    - [git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm, Installing plugin manager for tmux]
-
-# Shell configuring
+# --- Git setup ---
 - link:
-    ~/.zshrc: zsh/zshrc
-    ~/.aliases: zsh/aliases
-    ~/.exports: zsh/exports
-    ~/.functions: zsh/functions
+    $XDG_CONFIG_HOME/git:
+      path: git
+      create: true
 
-# Git configuring
+# --- Neovim setup ---
 - link:
-    ~/.gitconfig: git/gitconfig
-    ~/.gitconfig_personal: git/gitconfig_personal
-    ~/.gitconfig_work: git/gitconfig_work
-    ~/.gitignore_global: git/gitignore_global
-
-# Neovim configuring
-- link:
-    ~/.config/nvim:
+    $XDG_CONFIG_HOME/nvim:
         path: nvim
         create: true
 
 - shell:
     - [nvim -c 'PlugInstall' -c q -c q, Installing NeoVim plugins]
 
-- shell:
-    - [curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh, Installing Oh-My-Zsh]
 
-- shell:
-    - [curl -L git.io/antigen --create-dirs -o $DESTINATION/.antigen/antigen.zsh, Installing Antigen]
-
+# --- Cleanup brew ---
 - shell:
     - [brew cleanup, Cleaning up Brew]

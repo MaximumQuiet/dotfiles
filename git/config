@@ -1,0 +1,13 @@
+[core]
+	editor = /usr/local/bin/nvim
+	autocrlf = input
+  excludesfile = ignore
+
+[commit]
+	gpgsign = true
+
+[includeIf "gitdir:~/Sources/bystrobank/"]
+  path = work
+
+[includeIf "gitdir:~/Sources/personal/"]
+  path = personal

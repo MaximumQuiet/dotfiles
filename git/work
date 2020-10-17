@@ -2,6 +2,3 @@
 	name = Maxim Kuznetsov
 	email = kuznetsov_me@bystrobank.ru
 	signingkey = kuznetsov_me@bystrobank.ru
-
-[http]
-sslVerify = false
