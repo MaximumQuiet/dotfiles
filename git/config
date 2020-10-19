@@ -3,6 +3,9 @@
 	autocrlf = input
   excludesfile = ignore
 
+[credential]
+  helper = osxkeychain
+
 [commit]
 	gpgsign = true
 
