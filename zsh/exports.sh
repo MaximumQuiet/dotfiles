@@ -64,6 +64,8 @@ configure_path() {
   export PATH=$PYENV_ROOT/bin:$PATH
   export PATH=$JENV_ROOT/shims:$PATH
   export PATH=/usr/local/sbin:$PATH
+  export PATH=$PATH:/opt/local/bin
+  export PATH=$XDG_DATA_HOME/pebble/pebble-sdk-4.5-rc1-mac/bin:$PATH
 }
 
 # --- Configure tools ---

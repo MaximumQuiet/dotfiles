@@ -15,7 +15,12 @@ call plug#end()
 
 " --- Set colorscheme ---
 colorscheme ayu
-let ayucolor="dark"
+" dark mode enabled?
+if system("defaults read -g AppleInterfaceStyle") =~ 'Dark'
+   let ayucolor="light"
+else
+   let ayucolor="dark"
+endif
 
 " --- Enable true colors support ---
 set termguicolors     
