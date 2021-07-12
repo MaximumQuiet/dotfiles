@@ -2,6 +2,11 @@
     link:
       relink: true
 
+# --- Clean existing symlinks ---
+- clean: ['$HOME']
+- clean: ['$XDG_CONFIG_HOME']
+
+
 # --- ZSH setup ---
 
 # --- XDG paths isn't present, so using here the hardcoded value ---
@@ -11,18 +16,13 @@
       create: true
 
 # --- Create cache dirs ---
-- shell:
-    - [mkdir $XDG_CACHE_HOME/zsh]
-    - [mkdir $XDG_CACHE_HOME/antigen]
-
-# --- Clean existing symlinks ---
-- clean: ['$HOME']
-- clean: ['$XDG_CONFIG_HOME']
+- create:
+    - $XDG_CACHE_HOME/zsh
+    - $XDG_CACHE_HOME/antigen
 
 # --- Brew packages ---
 - brewfile:
-    file: brew/Brewfile
-    no-upgrade: true
+    - brew/Brewfile
 
 # --- Tmux setup ---
 - link:

@@ -1,4 +1,5 @@
 [user]
-	name = MaximumQuiet
-	email = contact@maximumquiet.cyou
-	signingkey = contact@maximumquiet.cyou
+
+name = MaximumQuiet
+email = contact@maximumquiet.cyou
+signingkey = contact@maximumquiet.cyou

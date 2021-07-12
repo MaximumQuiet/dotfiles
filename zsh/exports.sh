@@ -59,20 +59,26 @@ follow_kubectl() {
   export KUBECONFIG=$XDG_CONFIG_HOME/kube/config
 }
 
+follow_vscode() {
+  export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode
+}
+
 # --- Configure PATH variable ---
 configure_path() {
   export PATH=$PYENV_ROOT/bin:$PATH
   export PATH=$JENV_ROOT/shims:$PATH
   export PATH=/usr/local/sbin:$PATH
   export PATH=$PATH:/opt/local/bin
-  export PATH=$XDG_DATA_HOME/pebble/pebble-sdk-4.5-rc1-mac/bin:$PATH
+  export PATH=$PATH:/opt/homebrew/bin
+  export PATH=$PATH:/opt/homebrew
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
 # --- Configure tools ---
-
 configure_pyenv() {
-  if command -v pyenv 1>/dev/null 2>&1; then
-      eval "$(pyenv init -)"
+  if command -v jenv 1>/dev/null 2>&1; then 
+    eval "$(pyenv init --path)"
   fi
 }
 
@@ -83,16 +89,15 @@ configure_jenv() {
 }
 
 configure_nvm() {
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$(brew --prefix nvm)" ] && \. "$(brew --prefix nvm)/nvm.sh"
 }
 
 configure_zsh() {
   export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h";
-  export TYPEWRITTEN_SYMBOL="->"
-  export TYPEWRITTEN_RIGHT_PROMPT_PREFIX="# "
-  export TYPEWRITTEN_COLOR_MAPPINGS="primary:#ff8f40;secondary:#ff8f40;accent:#e6b450;info_negative:#ff3333;info_positive:#c2d94c;info_neutral_1:#e6b450;info_neutral_2:#59c2ff;info_special:#95e6cb" 
+  export SPACESHIP_CHAR_SYMBOL="->"
+  export SPACESHIP_CHAR_SUFFIX=" "
 }
-
+  
 configure_tmux() {
   # --- Correct tmux colors ---
   export TERM=xterm-256color
@@ -108,10 +113,6 @@ configure_ssh() {
   if [[ -n $SSH_CONNECTION ]]; then
      export EDITOR='vi'
   fi
-}
-
-configure_docker() {
-  export DOCKER_HOST='tcp://192.168.42.2:2376'
 }
 
 # --- Configure defaults ---
@@ -141,17 +142,16 @@ set_default_lang() {
   follow_nvm
   follow_npm
   follow_kubectl
+  follow_vscode
 
   configure_path
 
-  configure_pyenv
   configure_jenv
   configure_nvm
   configure_zsh
   configure_tmux
   configure_gpg
   configure_ssh
-  configure_docker
 
   set_default_editor
   set_default_lang

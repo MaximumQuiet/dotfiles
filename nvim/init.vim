@@ -23,7 +23,6 @@ else
 endif
 
 " --- Enable true colors support ---
-set termguicolors     
 
 " --- Turn on syntax highlighting ---
 syntax on

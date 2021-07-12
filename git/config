@@ -1,16 +1,18 @@
 [core]
-	editor = /usr/local/bin/nvim
-	autocrlf = input
-  excludesfile = ignore
+
+editor = /opt/homebrew/bin/nvim
+autocrlf = input
+excludesfile = ignore
 
 [credential]
-  helper = osxkeychain
+
+helper = osxkeychain
 
 [commit]
-	gpgsign = true
+gpgsign = false
 
-[includeIf "gitdir:~/Sources/bystrobank/"]
-  path = work
+[includeIf "gitdir:~/Sources/fulltime/"]
+path = fulltime
 
 [includeIf "gitdir:~/Sources/personal/"]
-  path = personal
+path = personal

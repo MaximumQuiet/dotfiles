@@ -1,3 +1,6 @@
 .DS_Store
 nvim/.netrwhist
 zsh/.zsh_sessions
+zsh/.zsh_history
+zsh/private-functions.sh
+zsh/.zshrc.zwc
